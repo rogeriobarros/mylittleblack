@@ -15,7 +15,7 @@ before_install:
 - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 - sudo apt-get -qq update
 - sudo apt-get -qq install g++-4.8
-- curl -sL https://github.com/jpm4j/jpm4j.installers/blob/master/dist/biz.aQute.jpm.run.jar?raw=true >jpm4j.jar
+- curl -sL http://bit.ly/jpm4j >jpm4j.jar
 - sudo java -jar jpm4j.jar -g init
 - sudo jpm install com.codacy:codacy-coverage-reporter:assembly
 
