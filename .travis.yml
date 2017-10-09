@@ -21,7 +21,7 @@ before_install:
 - sudo apt-get -qq install ruby-switch
 - sudo ruby-switch --set ruby2.1
 - ruby -v
-- sudo gem install travis -v 1.8.8 --no-rdoc --no-ri
+- gem install travis -v 1.8.8 --no-rdoc --no-ri
 - travis version
 
 #- curl -sL http://bit.ly/jpm4j > jpm4j.jar
