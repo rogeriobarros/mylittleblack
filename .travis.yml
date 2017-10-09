@@ -15,6 +15,15 @@ before_install:
 - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 - sudo apt-get -qq update
 - sudo apt-get -qq install g++-4.8
+- sudo apt-get install python-software-properties
+- sudo apt-add-repository ppa:brightbox/ruby-ng
+- sudo apt-get update
+- sudo apt-get install ruby2.1 ruby-switch
+- sudo ruby-switch --set ruby2.1
+- ruby -v
+- sudo gem install travis -v 1.8.8 --no-rdoc --no-ri
+- travis version
+
 #- curl -sL http://bit.ly/jpm4j > jpm4j.jar
 #- sudo java -jar jpm4j.jar -g init
 #- sudo jpm install com.codacy:codacy-coverage-reporter:assembly
