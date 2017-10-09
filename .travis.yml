@@ -16,9 +16,9 @@ before_install:
 - sudo apt-get -qq update
 - sudo apt-get -qq install g++-4.8
 - sudo apt-get install python-software-properties
-- sudo apt-add-repository ppa:brightbox/ruby-ng
-- sudo apt-get update
-- sudo apt-get install ruby2.1 ruby-switch
+- sudo apt-add-repository -y ppa:brightbox/ruby-ng 
+- sudo apt-get -qq update
+- sudo apt-get -qq install ruby2.1 ruby-switch
 - sudo ruby-switch --set ruby2.1
 - ruby -v
 - sudo gem install travis -v 1.8.8 --no-rdoc --no-ri
