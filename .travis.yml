@@ -1,52 +1,38 @@
-sudo: true
 sudo: required
-
 env:
   global:
   - CXX=g++-4.8
-
 language: java
-
 jdk:
 - oraclejdk8
-
 before_install:
 - chmod +x gradlew
 - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-- sudo apt-add-repository -y ppa:brightbox/ruby-ng 
+- sudo apt-add-repository -y ppa:brightbox/ruby-ng
 - sudo apt-get -qq update
 - sudo apt-get -qq install g++-4.8
 - sudo apt-get -qq install python-software-properties
-- sudo apt-get -qq install ruby2.1 
+- sudo apt-get -qq install ruby2.1
 - sudo apt-get -qq install ruby-switch
 - sudo ruby-switch --set ruby2.1
 - ruby -v
 - gem install travis -v 1.8.8 --no-rdoc --no-ri
 - travis version
-
-#- curl -sL http://bit.ly/jpm4j > jpm4j.jar
-#- sudo java -jar jpm4j.jar -g init
-#- sudo jpm install com.codacy:codacy-coverage-reporter:assembly
-
 script:
-  - ./gradlew clean build -i --continue
-
+- "./gradlew clean build -i --continue"
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-
 cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
-  
 after_success:
-  - codacy-coverage-reporter -l Java -r build/reports/jacoco/test/jacocoTestReport.xml --prefix src/main/java/
-  
+- codacy-coverage-reporter -l Java -r build/reports/jacoco/test/jacocoTestReport.xml
+  --prefix src/main/java/
 deploy:
   provider: heroku
-  api_key:
-    secure: Dlmte1CRBxaJV1wwwK6JLEPzbwPt9ON0SsTA7TdLz9gZtEv5J5EwV+xf4D44JBXai2cTcTONVbmzo/LRLjDjtAca34YhX2Y0WFmr0U9mIJwid5PwJ6PRIhUNHGwfmThoYYtc7NEPl4QQDaQfKJZysh2JLAmaYrsyfYfcDUgi9Xz4AMV4nYm7M3XPA1YZFIuDv+K1mB22k4X0CnNE3sSWZLsrE2INemQlOiDs95AAcjdBXUqsC6Yyp3IqtGphILwf7wYSCWr/wfmHE+k+uBXKiABnr3my2yd1rvLbl8IeLLcMUsbADIk63pj0TOFtZgD5KoQSwhyUG2q3N+WWEUFXIN0OL6nEaML4QK5hK6GRrwtQFEhB5XM20rYauJamNv4hCGQiNWBYSuRd7OwVSYOTm6HHih8QYq7tYhgG/9YNOsYK3wo1QAbhFevP77LMExKrEF22Ldy9Zmc9jBxGEIh9FvRzAWGj/HLC5J88+1J1AcKHCMOpiGirH98ieLmCdBybJQ+kitP2OyGJxfp2Q/K2BknDKCjEfQvpEkFAjUqszAnGNQYffTXyTwBUP+Ot6jhwOEHedUBASOB55TOu56cj+5FhDPNdoisElyBmJQhO9Zm9j6Pdf4C2XhMlU6yTnoeTQj0q+miEvkyKiBw5XoZMk/hRf2xgFrAcNTCZxrFoHbg=
   app: mylittleblack
   on:
     repo: rogeriobarros/mylittleblack
- 
+  api:
+    secure: P08vIM9T/vbm2r7kJAQRrvZWjz4SQ0yfAj60mLKXf4gozlt8mdakf+OF+VFNgiAK2S4K5lNdbZtlp4n19AT7pCwZO6dT/+axBpi5tN5lX2il0aWSlKXzH2xMgwsBO2Rlt6MV6ONrrjFPbmY644W4D222sNJ0fyW+mckMsJgzLfMNYQmgkfiwhX7Rjo1C897Frx8ZKANFqRMSC0NE0P+7cOcakiI6YiPB7k8+sxapaBFzZk4THjlvsO5bvkYLGBLprDHcHPLlkWvmvwXCQ+nbGjo+DXmE3VBZxET445juI17C0jG4xnwC4u6j60uW+1jTfxHGt7fTCgkGmuxyoOtSGmcLQ8ZEBePpX6jtujluJ1VJy7JzB19guS2KGdBlNNfrSMJ6Z8hAZolMpnQnmXv7jYJ3oYk9P6lAnVRUXHJLWuqDS32zdtA43wjnICHGb4JW5l0oTxzaqdsc/Jz5LR/VV+ibapgYmJEF9Zg5pvT/jhmIOzUWJj9YWWK1+M8zR4jnDATy3fGTGnAU1fTY/MX8oY4v9W174131sJSatmv16h3FGDAQPo0WHcxuuKRmBx7VT5H1j7y2MrD6m4Sj6Ie0Wjv8dir6Tt8Mqvh7/JJpJ1Q3f2/ug0H2JBClbhZGFiKvsaH/wnAYkwdFQFRSRGRjQzEfj8bOIyEMb+iTBkQaeG4=
