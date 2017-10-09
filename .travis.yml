@@ -41,4 +41,12 @@ cache:
   
 after_success:
   - codacy-coverage-reporter -l Java -r build/reports/jacoco/test/jacocoTestReport.xml --prefix src/main/java/
+  
+deploy:
+  provider: heroku
+  api_key:
+    secure: Dlmte1CRBxaJV1wwwK6JLEPzbwPt9ON0SsTA7TdLz9gZtEv5J5EwV+xf4D44JBXai2cTcTONVbmzo/LRLjDjtAca34YhX2Y0WFmr0U9mIJwid5PwJ6PRIhUNHGwfmThoYYtc7NEPl4QQDaQfKJZysh2JLAmaYrsyfYfcDUgi9Xz4AMV4nYm7M3XPA1YZFIuDv+K1mB22k4X0CnNE3sSWZLsrE2INemQlOiDs95AAcjdBXUqsC6Yyp3IqtGphILwf7wYSCWr/wfmHE+k+uBXKiABnr3my2yd1rvLbl8IeLLcMUsbADIk63pj0TOFtZgD5KoQSwhyUG2q3N+WWEUFXIN0OL6nEaML4QK5hK6GRrwtQFEhB5XM20rYauJamNv4hCGQiNWBYSuRd7OwVSYOTm6HHih8QYq7tYhgG/9YNOsYK3wo1QAbhFevP77LMExKrEF22Ldy9Zmc9jBxGEIh9FvRzAWGj/HLC5J88+1J1AcKHCMOpiGirH98ieLmCdBybJQ+kitP2OyGJxfp2Q/K2BknDKCjEfQvpEkFAjUqszAnGNQYffTXyTwBUP+Ot6jhwOEHedUBASOB55TOu56cj+5FhDPNdoisElyBmJQhO9Zm9j6Pdf4C2XhMlU6yTnoeTQj0q+miEvkyKiBw5XoZMk/hRf2xgFrAcNTCZxrFoHbg=
+  app: mylittleblack
+  on:
+    repo: rogeriobarros/mylittleblack
  
