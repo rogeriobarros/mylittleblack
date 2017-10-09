@@ -15,10 +15,9 @@ before_install:
 - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 - sudo apt-get -qq update
 - sudo apt-get -qq install g++-4.8
-#- curl -sL https://github.com/jpm4j/jpm4j.installers/blob/master/dist/biz.aQute.jpm.run.jar?raw=true >jpm4j.jar
-#- sudo java -jar jpm4j.jar -g init
-- curl https://www.jpm4j.org/install/script | sh
-- sudo jpm install com.codacy:codacy-coverage-reporter:assembly
+- curl -sL https://github.com/jpm4j/jpm4j.installers/blob/master/dist/biz.aQute.jpm.run.jar?raw=true >jpm4j.jar
+- sudo java -jar jpm4j.jar -g init
+#- sudo jpm install com.codacy:codacy-coverage-reporter:assembly
 
 script:
   - ./gradlew clean build -i --continue
