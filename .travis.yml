@@ -19,22 +19,21 @@ before_install:
 - gem install travis -v 1.8.8 --no-rdoc --no-ri
 - travis version
 script:
-- "./gradlew clean build -i --continue"
+- ./gradlew clean build -i --continue
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
 after_success:
-- codacy-coverage-reporter -l Java -r build/reports/jacoco/test/jacocoTestReport.xml
-  --prefix src/main/java/
+- codacy-coverage-reporter -l Java -r build/reports/jacoco/test/jacocoTestReport.xml --prefix src/main/java/
 deploy:
   provider: heroku
   api_key:
     secure: dF6aLDuAwdZbNbKLjgHxI0UPqgvTswx5t7igp9x0DLUjHUS/nyYQDWDHyE7JNt5U2EBvzs0FT2jtCBkiXfl7iu+UkX4vCfaTisyO6aqDWTCk8yVR9vjX44BuEnnPegm3tYXMyzwMf81v1oIV6R3ZjYUTrU1ZbihUEwrMpnHrpajNFf9Jm7fdCOixjiX49GxW1VhFSfcKHG1WcE+yT4kp9H7THjmjYEl1sSzjDeoVxnkDKgw30oZAkAYNcrfGID/o3MKP6P97bXe0/LLFwoCh+BTPNbDryWDMRvrSNEHqQ4GgaTKjAQVQrk6RPJFxJbnPM4LYwSdbQeJCRqVWx3njjFqHo42gVFXKa4BOhxyjNb661m1cg6IAqfqNg0S/DWYs997JI+7m4r1Dfb8LabM4onCURSR9z5FmUFJqZDlhXHwz/Ix/qilM33Qljv/8AJpLwR/chM4xNRw6na+TnwCmFByHjGiOc3/SpfNEVG97DB2rsbd7wulSnnQutC1ZXNhRZWMWcIXAkvSntpqpPariWRTfu77lAUxGMTUGfx/woWgL94mpoAeoIWLlDoJwbo41bYPOWAQ8QiFNjzw3vMPsvfpAlzrASJz42ldbNoMJzH3BYrWRC9y35obnrfCgFkkcCiOWjHPvxSpBdny/DfjJ+19WNeAIRD+3urRvQqxxnbk=
   app: mylittleblack
-  on:
+  true:
     repo: rogeriobarros/mylittleblack
   api:
     secure: V3+ETffksSD8lCSR1ZkKpfZfkvNcW+LIAH3NlLQ2CnaZ3+cPD4615rW615Y9TCKkKeTuiogo9QWySdCiHjkx4QMgd6LAie4BN3wE9emmm0vOCoMbFOwpCIrIfJPHeIncDISslwLxUkfI7Eo9Ntzc1ggx9w0JHCumJFiT4hdA5K9Qu6LDEFSB4HtmpztTISqumhfQHRM7xqv2Q0QzuqfqwuBIUY/ARAHWBXxnBD1JkyEMkJkkX0x6mX4iyPx8uPv0BVzb29ZWDKHnbun+AbkQvODEYvTYU6bTWZCLkrbEEcoqTE3qaob5qXFzKz3bpkK2PRwmdfGAmnLdOBy430yiZ3akFHZzeG4NgSYTrNa437V49OB28hKw9bBBm096ASiiDVoGhKlPMMywIg5RyhgHZ/idaGrP77zslC2ea1WBndBlKuZNbgsdXyjCBTBGXkY1qcqVCgOFQZixD9Uez4WssMvKOHwsdw3hwVOW9tMZUJmsmdVvdbHKLjwS+aUChUgalHXqGa4Vp8pyhhdzdQH6XNPoFzCZw6PVUJgeqTm6VwILvS/ameGF20z8NGExCKNQ2AMoWUhNPN8WqCwzPa/uyX7C7HflugTQgeOzrsbEZxB7Ze/ZvthTda2Bh7yiZN06/BLt9UPfvj0wUcHqmZiUiDAntHWf07KzYjAk2B8RYyw=
