@@ -19,21 +19,22 @@ before_install:
 - gem install travis -v 1.8.8 --no-rdoc --no-ri
 - travis version
 script:
-- ./gradlew clean build -i --continue
+- "./gradlew clean build -i --continue"
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
 after_success:
-- codacy-coverage-reporter -l Java -r build/reports/jacoco/test/jacocoTestReport.xml --prefix src/main/java/
+- codacy-coverage-reporter -l Java -r build/reports/jacoco/test/jacocoTestReport.xml
+  --prefix src/main/java/
 deploy:
   provider: heroku
   api_key:
     secure: dF6aLDuAwdZbNbKLjgHxI0UPqgvTswx5t7igp9x0DLUjHUS/nyYQDWDHyE7JNt5U2EBvzs0FT2jtCBkiXfl7iu+UkX4vCfaTisyO6aqDWTCk8yVR9vjX44BuEnnPegm3tYXMyzwMf81v1oIV6R3ZjYUTrU1ZbihUEwrMpnHrpajNFf9Jm7fdCOixjiX49GxW1VhFSfcKHG1WcE+yT4kp9H7THjmjYEl1sSzjDeoVxnkDKgw30oZAkAYNcrfGID/o3MKP6P97bXe0/LLFwoCh+BTPNbDryWDMRvrSNEHqQ4GgaTKjAQVQrk6RPJFxJbnPM4LYwSdbQeJCRqVWx3njjFqHo42gVFXKa4BOhxyjNb661m1cg6IAqfqNg0S/DWYs997JI+7m4r1Dfb8LabM4onCURSR9z5FmUFJqZDlhXHwz/Ix/qilM33Qljv/8AJpLwR/chM4xNRw6na+TnwCmFByHjGiOc3/SpfNEVG97DB2rsbd7wulSnnQutC1ZXNhRZWMWcIXAkvSntpqpPariWRTfu77lAUxGMTUGfx/woWgL94mpoAeoIWLlDoJwbo41bYPOWAQ8QiFNjzw3vMPsvfpAlzrASJz42ldbNoMJzH3BYrWRC9y35obnrfCgFkkcCiOWjHPvxSpBdny/DfjJ+19WNeAIRD+3urRvQqxxnbk=
   app: mylittleblack
-  true:
+  on:
     repo: rogeriobarros/mylittleblack
   api:
-    secure: V3+ETffksSD8lCSR1ZkKpfZfkvNcW+LIAH3NlLQ2CnaZ3+cPD4615rW615Y9TCKkKeTuiogo9QWySdCiHjkx4QMgd6LAie4BN3wE9emmm0vOCoMbFOwpCIrIfJPHeIncDISslwLxUkfI7Eo9Ntzc1ggx9w0JHCumJFiT4hdA5K9Qu6LDEFSB4HtmpztTISqumhfQHRM7xqv2Q0QzuqfqwuBIUY/ARAHWBXxnBD1JkyEMkJkkX0x6mX4iyPx8uPv0BVzb29ZWDKHnbun+AbkQvODEYvTYU6bTWZCLkrbEEcoqTE3qaob5qXFzKz3bpkK2PRwmdfGAmnLdOBy430yiZ3akFHZzeG4NgSYTrNa437V49OB28hKw9bBBm096ASiiDVoGhKlPMMywIg5RyhgHZ/idaGrP77zslC2ea1WBndBlKuZNbgsdXyjCBTBGXkY1qcqVCgOFQZixD9Uez4WssMvKOHwsdw3hwVOW9tMZUJmsmdVvdbHKLjwS+aUChUgalHXqGa4Vp8pyhhdzdQH6XNPoFzCZw6PVUJgeqTm6VwILvS/ameGF20z8NGExCKNQ2AMoWUhNPN8WqCwzPa/uyX7C7HflugTQgeOzrsbEZxB7Ze/ZvthTda2Bh7yiZN06/BLt9UPfvj0wUcHqmZiUiDAntHWf07KzYjAk2B8RYyw=
+    secure: eJEae6A5bUsB/Sxm57mgkY4w7BBWgQIP2OjyhMwM8lgEyKvsugoaCupx7AAfmNAzmh7oOg88NEBwmnpB2WhD2IEajrfNd4ijbb1kha8S9//EWtkAVJFjMZsaVECjlyz5N+Ky08UXsBcSHaj1Z4bXvXrpYIeRWZV+6O88S0CIB0upg9Bt/dIv1/h0ZFpvZchaIwLo2Jd9PHaooIiKzNZ7ei/IGya235NkYquuCFxo1iKmYoq51ZStKeJVvmT09Iz2o2kCC5wx82zMrIwcjQ8IAaWFkvPhhzf474tAC3JJiZm34P0bKZhX0Ne1tpS8ZFD6SWM9RPsrJ9HAEqwvBfaxxWp0F5h4MhQhiuZw22QnY7fxKhOxJFKaEZ6R4SmE61dCjIH3IOn+19XzzY9tvBRhOiKVA0Y7jyKjBut6MMThUXjLLTbGixNjIIxag15fqLzDmpW8zvuTtEdigB1P4nc7SxlvZX9lijGmmOMg4aLdEvSEBPJUG9OyXlVLZDSV0LduuWD7ZC0EhWaf7/X8pwViJcZ08ruWwipFgYklGt7tkqeCc+y+kWEp8vwFLiJbJwlIfKY/1VgPAhlGYHb0rFCRTPOTANEqPJ/2uBAeR2guQKRWvJlBn0gXMkK3jRW99cMc3ir5VLDMz5PlLUPoPn1lV2D1FU0Lbj5GzgH4VjhUnM4=
