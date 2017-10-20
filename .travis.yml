@@ -34,5 +34,5 @@ deploy:
   app: mylittleblack
   on:
     repo: rogeriobarros/mylittleblack
-  api:
+  api_key:
     secure: ooC2BatiYDRIug6w7o2+1E/w1zQuQP9T1k3RXuvYs3lEfhn+apl2GPW9trJ67hgQzoUVdDUC6+TTodyoOgcVeMvfnJBcXEVsukpY5oDuUiFHpcJrY39/nakQ/f7b0zhLWNEl3A45EzrlwBQcWCyeAzX1+p+KxORQLe1tJT0jvWtoj5bfpqw1Ytq/AjJuwz/DUic9SRVwSJIFFgiCl8admkSx+OAPMEJ6uuzPjZxe8hJCUWxzKOV/y2TuZ2Ez6acEu0imReWl6vJ22HJD4pL315iJb47GaQWNhg0W2cEKkLh9QqlZujaW4tAwpSvqYLysZ2AfKqrAL9AmCcVqHfiaGzgqgI1jp52z4pk32LvY/rRwpkQo7Pdy3YCCkDy+K7I5QqFCA1R1jo8dpz0R1IXZHyDiA9FsGVKMsR1b5BrVfyV/+xfCuOL6ME/EXGY+5S9EK7X3X/FzY8xatvK+O8BzIPoQwqoIygMlOrhJ6oqyy24cMzW4C9QKeO6wnb4gwGmYBX/CsFvGCNA7I/iiH1ydLZyOQRxMOIP64vnvUFTja1pXzFRYWvq/zgaWhU/olc+u8+yMLeB4Z3jDy4g+Sr1xTpLBAJSh6x+wKrSpdiFN3AYx+o/7jH7I1wFcXASA5BNvNgpO2z9lInDMpG4DX6UaiQjpMwKBy1fwpYDkNrZBre4=
